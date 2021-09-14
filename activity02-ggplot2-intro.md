@@ -193,7 +193,8 @@ GitHub and compare/contrast your `activity02-ggplot2-intro.Rmd` and
 `activity02-ggplot2-intro.md` files. Which is easier to read? Which
 looks more professional?
 
-**Response**:
+**Response**: The md file is much easier to read. The md also looks more
+professional.
 
 Now, wouldn’t it be nice if we could combine these two plots so that we
 get the benefits of both!?! That is, how can we overlay the jitterplot
@@ -218,7 +219,9 @@ ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = species, fill =
 Play around with doing the jitterplot laid over the boxplot and the
 boxplot laid over the jitterplot. Which do you prefer? Why?
 
-**Response**:
+**Response**: I prefer the jitterplot laid over the boxplot so that all
+the points are visible. The boxplot laid over the jitterplot makes it
+hard to see how the points are layed out behind the IQR of the boxplots.
 
 This is getting us closer to one of my favorite plots - the raincloud
 plot. We are not quite ready to create this plot, but we will get there
@@ -232,12 +235,27 @@ default white coloring. In the code chunk below, explore different
 methods to try to create this plot. A hint, all `geom_*` have a
 `mapping` argument.
 
+``` r
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = species)) +
+  geom_boxplot()+
+  geom_jitter(mapping = aes(color = species))
+```
+
+    ## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/jitter-colored-only-1.png)<!-- -->
+
 In the above code chunk, continue to play around with having the
 aesthetics mapped in the different layers. For example, how does having
 all of them mapped in the `ggplot` call compared to having these instead
 mapped in the `geom_boxplot` layer? Comment on what you notice.
 
-**Response**:
+**Response**: Calling it in the ggplot call always maps the aesthetic to
+the boxplot for me. Calling it in geom\_boxplot also just mapes the
+aesthetic to the boxplot. If you want only the jitterplot to have the
+aesthetics mapped then you only call it in that geom.
 
 Knit, then stage everything listed in your **Git** pane, commit (with a
 meaningful commit message), and push to your GitHub repo. Go to GitHub
