@@ -205,17 +205,20 @@ Create graphs to explore the relationship between `bill_length_mm` and each of `
 Using these three graphs to discuss which of these three categorical variables seems to be contributing more to these two peaks and explain your reasoning.
 
 ```{r bill_length_by_species}
-
+ggplot(penguins, aes(x = species, y = bill_length_mm))+
+  geom_boxplot()
 ```
 
 
 ```{r bill_length_by_sex}
-
+ggplot(penguins, aes(x = sex, y = bill_length_mm))+
+  geom_boxplot()
 ```
 
 
 ```{r bill_length_by_island}
-
+ggplot(penguins, aes(x = island, y = bill_length_mm))+
+  geom_boxplot()
 ```
 
 **Response**:
@@ -233,7 +236,8 @@ Here we continue exploring scatterplots using `{ggplot2}`.
 In the code chunk below, create a scatterplot for the relationship between `flipper_length_mm` and `body_mass_g`.
 
 ```{r flipper_vs_mass}
-
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))+
+  geom_point()
 ```
 
 Describe any patterns that you notice.
@@ -244,7 +248,8 @@ Describe any patterns that you notice.
 Recreate your scatterplot in the code chunk below; however,  *map* `species` to the `color` and `shape` aesthetics.
 
 ```{r flipper_vs_mass_with_species}
-
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))+
+  geom_point(aes(color = species, shape = species))
 ```
 
 Describe any patterns that you notice.
@@ -256,7 +261,8 @@ The previous plot looked great except even in this rather small dataset (n = 344
 In the R code chunk below, *set* the values (instead of mapping a variable to an aesthetic) of `size` (using some value larger than zero) and `alpha` (using some value between 0 and 1) to make your previous plot more effective.
 
 ```{r flipper_vs_mass_with_size_alpha}
-
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))+
+  geom_point(aes(size = 0.5, alpha = 0.5))
 ```
 
 Discuss the decisions you made to help your plot be easier to read.
