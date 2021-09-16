@@ -278,6 +278,33 @@ graphs). Using these three graphs to discuss which of these three
 categorical variables seems to be contributing more to these two peaks
 and explain your reasoning.
 
+``` r
+ggplot(penguins, aes(x = species, y = bill_length_mm))+
+  geom_boxplot()
+```
+
+    ## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+
+![](activity02-ggplot2-intro_files/figure-gfm/bill_length_by_species-1.png)<!-- -->
+
+``` r
+ggplot(penguins, aes(x = sex, y = bill_length_mm))+
+  geom_boxplot()
+```
+
+    ## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+
+![](activity02-ggplot2-intro_files/figure-gfm/bill_length_by_sex-1.png)<!-- -->
+
+``` r
+ggplot(penguins, aes(x = island, y = bill_length_mm))+
+  geom_boxplot()
+```
+
+    ## Warning: Removed 2 rows containing non-finite values (stat_boxplot).
+
+![](activity02-ggplot2-intro_files/figure-gfm/bill_length_by_island-1.png)<!-- -->
+
 **Response**:
 
 Knit, then stage everything listed in your **Git** pane, commit (with a
@@ -293,12 +320,30 @@ exploring scatterplots using `{ggplot2}`.
 In the code chunk below, create a scatterplot for the relationship
 between `flipper_length_mm` and `body_mass_g`.
 
+``` r
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))+
+  geom_point()
+```
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/flipper_vs_mass-1.png)<!-- -->
+
 Describe any patterns that you notice.
 
 **Response**:
 
 Recreate your scatterplot in the code chunk below; however, *map*
 `species` to the `color` and `shape` aesthetics.
+
+``` r
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))+
+  geom_point(aes(color = species, shape = species))
+```
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/flipper_vs_mass_with_species-1.png)<!-- -->
 
 Describe any patterns that you notice.
 
@@ -310,6 +355,15 @@ chunk below, *set* the values (instead of mapping a variable to an
 aesthetic) of `size` (using some value larger than zero) and `alpha`
 (using some value between 0 and 1) to make your previous plot more
 effective.
+
+``` r
+ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))+
+  geom_point(aes(size = 0.5, alpha = 0.5))
+```
+
+    ## Warning: Removed 2 rows containing missing values (geom_point).
+
+![](activity02-ggplot2-intro_files/figure-gfm/flipper_vs_mass_with_size_alpha-1.png)<!-- -->
 
 Discuss the decisions you made to help your plot be easier to read.
 
