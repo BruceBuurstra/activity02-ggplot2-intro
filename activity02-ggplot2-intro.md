@@ -331,7 +331,8 @@ ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))+
 
 Describe any patterns that you notice.
 
-**Response**:
+**Response**: As flipper length goes up so does body mass, positive
+linear relationship.
 
 Recreate your scatterplot in the code chunk below; however, *map*
 `species` to the `color` and `shape` aesthetics.
@@ -347,7 +348,8 @@ ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))+
 
 Describe any patterns that you notice.
 
-**Response**:
+**Response**: Gentoo generally have longer flippers and weigh more than
+the other 2 species.
 
 The previous plot looked great except even in this rather small dataset
 (n = 344), there might are a number of points overlapping. In the R code
@@ -367,7 +369,8 @@ ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g))+
 
 Discuss the decisions you made to help your plot be easier to read.
 
-**Response**:
+**Response**: The most overlap appears to be in the middle of the clumps
+of data points.
 
 Knit, then stage everything listed in your **Git** pane, commit (with a
 meaningful commit message), and push to your GitHub repo. Go to GitHub
